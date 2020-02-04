@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:zoo_app/PartyWindow.dart';
 
 void main() => runApp(new MyApp());
 
@@ -22,6 +23,7 @@ class LoginPage extends StatefulWidget {
 enum FormType { login, register }
 
 class _LoginPageState extends State<LoginPage> {
+  final PartyWindow _partyWindow = PartyWindow();
   final TextEditingController _emailFilter = new TextEditingController();
   final TextEditingController _passwordFilter = new TextEditingController();
   String _email = "";
@@ -147,6 +149,12 @@ class _LoginPageState extends State<LoginPage> {
   // These functions can self contain any user auth logic required, they all have access to _email and _password
 
   void _loginPressed() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => _partyWindow,
+      ),
+    );
     print('The user wants to login with $_email and $_password');
   }
 
